@@ -3,20 +3,16 @@ import { IGenericRepository } from '../../../core';
 
 export class MongoGenericRepository<T> implements IGenericRepository<T> {
   private _repository: Model<T>;
-  private _populateOnFind: string[];
 
-  constructor(repository: Model<T>, populateOnFind: string[] = []) {
+  constructor(repository: Model<T>) {
     this._repository = repository;
-    this._populateOnFind = populateOnFind;
   }
 
   getAll(): Promise<T[]> {
     return this._repository.find().exec()
-    // return this._repository.find().populate(this._populateOnFind).exec();
   }
 
   get(id: any): Promise<T> {
-    // return this._repository.findById(id).populate(this._populateOnFind).exec();
     return this._repository.findById(id).exec();
   }
 

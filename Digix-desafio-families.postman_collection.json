@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "6d58c098-30b2-4d67-8235-97953f8897e3",
+		"name": "Digix-desafio-families",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "familyGetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:3000/api/family",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"family"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postFamily",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"neves family\",\r\n    \"members\": [\r\n        {\r\n            \"name\": \"thales neves\",\r\n            \"age\": 14,\r\n            \"dependent\": true,\r\n        },\r\n        {\r\n            \"name\": \"yasmin neves\",\r\n            \"age\": 10,\r\n            \"dependent\": true,\r\n        },\r\n        {\r\n            \"name\": \"tatiana neves\",\r\n            \"age\": 30,\r\n            \"dependent\": false,\r\n        }\r\n    ],\r\n    \"financeTotal\": 1300\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/family/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"family",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "putFamily",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"members\": [\n        {\n            \"name\": \"silvana silva\",\n            \"age\": 45,\n            \"dependent\": false\n        },\n        {\n            \"name\": \"gabriel silva\",\n            \"age\": 12,\n            \"dependent\": true\n        },\n        {\n            \"name\": \"yago silva\",\n            \"age\": 15,\n            \"dependent\": true\n        },\n        {\n            \"name\": \"emerson silva\",\n            \"age\": 17,\n            \"dependent\": true\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/family/6257886f030b5ed9d2cb45fd",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"family",
+						"6257886f030b5ed9d2cb45fd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOneFamily",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/merge-patch+json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"peter andrew\",\n\t\"email\":\"andrew@marvel.com\",\n\t\"id\":\"5d84280c840780283cb182cd\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:3000/api/family/6257886f030b5ed9d2cb45fd",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"family",
+						"6257886f030b5ed9d2cb45fd"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import {
   FamilyController,
-} from './controllers';
-import { DataServicesModule } from './services/data-services/data-services.module';
-import { FamilyServicesModule } from './services/use-cases/family/family-services.module';
+} from './frameworks/http/controllers';
+import { DataServicesModule } from './frameworks/data-services';
+import { FamilyServicesModule } from './modules';
 
 @Module({
   imports: [

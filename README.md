@@ -1,98 +1,102 @@
-# Clean Architecture With NestJS
-## Description
-It's been a while since my last article on [how to implement clean architecture on Node.js applications](https://betterprogramming.pub/node-clean-architecture-deep-dive-ab68e523554b), [git repo](https://github.com/royib/clean-architecture-node).
-After working with NestJS and TypeScript I thought it was a good idea to come back and write a new article on the subject. This time we are going to take the super power of typescript and the methodologies and tools of NestJS and harness them to our benefits.
+> # Digix Desafio Técnico
 
-Coming from a background of object-oriented languages, it was natural that we
-wanted to keep all our [SOLID](https://en.wikipedia.org/wiki/SOLID) principles
-in our new and shiny node API.
+Desafio: https://www.notion.so/Desafio-t-cnico-2f53347cf16a418fb75c67c978ab1a0e
+## Seleção de famílias aptas a ganharem uma casa popular
 
-Like any other architecture, we had to make different trade-offs in the
-implementation.
+Temos um produto e recebemos o desafio de gerar uma lista de pessoas aptas a ganhar uma casa popular do governo, tendo como única exigência que essa lista esteja ordenada de forma mais justa possível com um somatório de pontos, analisando aspectos das famílias que estão participando. São considerados os seguintes critérios para a construção das pontuações:
 
-We had to be careful not to over-engineer or over-abstract our layers, but
-rather keep it as flexible as needed.
+- Renda total da família até 900 reais - valendo 5 pontos;
+- Renda total da família de 901 à 1500 reais - valendo 3 pontos;
+- Famílias com 3 ou mais dependentes  (lembrando que dependentes maiores de 18 anos não contam) - valendo 3 pontos;
+- Famílias com 1 ou 2 dependentes  (lembrando que dependentes maiores de 18 anos não contam) - valendo 2 pontos.
 
-In recent years, we have implemented [clean
-architecture](http://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
-by Robert C. Martin (Uncle Bob) on our API projects. This architecture attempts
-to integrate some of the leading modern architecture like [Hexagonal
-Architecture](http://alistair.cockburn.us/Hexagonal+architecture), [Onion
-Architecture](http://jeffreypalermo.com/blog/the-onion-architecture-part-1/),
-[Screaming
-Architecture](http://blog.cleancoders.com/2011-09-30-Screaming-Architecture)
-into one main architecture. It aims to achieve good separation of concerns. Like
-most architecture, it also aims to make the application more flexible to
-inevitable changes in client requirements (which always happens).
+O código que faz essa análise hoje é totalmente procedural, repleto de blocos if/else pra analisar e montar as classificações e nos dá muito custo de manutenção, nos motivando a procurar uma nova solução para este problema. Seu desafio é justamente isso, codificar uma forma melhor de chegar no mesmo resultado usando e abusando da orientação à objetos, criando classes e métodos de uma forma que fique tudo mais legível e fácil de manter e estender.
 
-![](https://fullstackroyhome.files.wordpress.com/2019/03/cleanarchitecture.jpg)
+Falando sobre estender, o cliente já deixou um alerta ligado de que irão incluir novos critérios na avaliação das famílias em breve, assim que forem aprovados pelo governador, então temos que ter uma solução preparada para adicioná-los sem muito custo de implementação.
 
-clean architecture diagram - dependencies direction are from outside in.
-[source](http://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+Como iremos focar em avaliar os conceitos usados, também não há necessidade de entregar um código funcionando e muito menos uma interface (tela), seja ela na linha de comando, web ou desktop. O que nos importa mesmo é o código que fará a regra de negócio e como ele estará estruturado.
 
-This diagram is taken from the [official
-article](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
-by Robert C. Martin. I recommend reading his article before diving into the node
-implementation. This is the best source knowledge about this architecture.
 
-Few words about this diagram and how to read it:
-
--   Dependency - the dependency direction is from the outside in. meaning that
-    the Entities layer is independent and the Frameworks layer depend on all the
-    other layers.
-
--   Entities - contains all the business entities that construct our
-    application.
-
--   Use Cases - This is where we centralize our logic. Each use case
-    orchestrates all of the logic for a specific business use case.
-
--   Controllers and Presenters - Our controller, presenters, and gateways are
-    intermediate layers. You can think of them as an entry and exit gates to the
-    use cases .
-
--   Frameworks - This layer has all the specific implementations. The database,
-    the web frameworks, error handling etc.  
-    Robert C. Martin describes this layer :  
-    *“This layer is where all the details go. The Web is a detail. The database
-    is a detail. We keep these things on the outside where they can do little
-    harm.”*
-
-In this point you will probably say to yourself “database is in outer layer,
-database is a detail ???” database is supposed to be my core layer.
-
-I love this architecture because it has a smart motivation behind it. Instead of
-focusing on frameworks and tools, it focuses on the business logic of the
-application. This architecture is framework independent (or as much as it can
-be). This means it doesn’t matter which database, frameworks, UI, external
-services you are using, the entities and the business logic of the application
-will always stay the same. We can change all of the above without changing our
-logic. This is what makes it so easy to test applications built on this
-architecture. Don’t worry if you don’t understand this yet, we will explore it
-step-by-step.
-## Getting Started
-### Dependencies
-* mongoDb - you need to provide a valid mongDb connection string.
-add a new environment variable named CLEAN_NEST_MONGO_CONNECTION_STRING
+> ## Usage
+#### Installation
+```bash
+$ npm install
 ```
-export CLEAN_NEST_MONGO_CONNECTION_STRING='valid mongoDB connection string' 
+#### Run tests
+```bash
+$ npm run test
 ```
-### Installing
+#### Run development
+```bash
+$ npm run start:dev
 ```
-npm install
+#### Run build
+```bash
+$ npm run build
 ```
-### Executing program
+#### Run server
+```bash
+$ npm run start:prod
+```
 
+> ## Principles
+* Single Responsibility Principle (SRP)
+* Open Closed Principle (OCP)
+* Liskov Substitution Principle (LSP)
+* Interface Segregation Principle (ISP)
+* Dependency Inversion Principle (DIP)
+* Separation of Concerns (SOC)
+
+> ## Design Patterns
+* Factory
+* Dependency Injection
+* Generic Repository Pattern
+* Data Transfer Object
+
+> ## Methodologies and Designs
+* TDD
+* Clean Architecture
+* Modular Design
+* Use Cases
+
+> ## Tests Features
+* Testes Unitários
+* Testes de Integração (API Rest)
+* Mocks
+* Stubs
+
+> ## Technologies
+* Node.js
+* Typescript
+* Mongo Database
+
+> ## Libs
+* NPM
+* Typescript
+* Jest
+* NestJs
+* Eslint
+* Mongoose
+
+## Estrutura de arquivos
+```shell
+  $ tree
+  .
+  ├── src/
+  │   └── configuration/                    # arquivos de configuracao, contem URL do banco de dados
+  │   └── core/                             # camada nucleo da aplicacao
+  |       └── abstracts/                    # interfaces da camada externa que sao usadas pelos casos de uso 
+  |       └── entities/                     # classes usadas pelo nucleo da aplicacao
+  |       └── use-cases/                    # services dos casos de uso que utilizam as entitidades
+  |   └── frameworks/                       # camada de frameworks externos
+  |       └── data-services/                # servicos de acesso a dados
+  |           └── mongo/                    # implementacao do generic repository com o mongoDB
+  |               └── model/                # modelos que representam schemas do banco de dados
+  |       └── http/                         # servicos do servidor web
+  |           └── controllers/              # controladores de rotas da API
+  |           └── dtos/                     # objetos de transferencia de dados, utilizado para validar request e response
+  |           └── factory/                  # classes de factory para conversao de dto em entidades e vice-versa
+  |   └── modules/                          # camada de modulos
+  ├── README.md                             # este arquivo com a descricao do projeto
+  └── test/                                 # pasta com arquivos de teste
 ```
-npm start
-```
-## Authors
-Royi Benita
-## Version History
-* 1.0
-## License
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-## Acknowledgments
-Inspiration, code snippets, etc.
-* [clean-architecture-node](https://github.com/royib/clean-architecture-node)
-* [Node Clean Architecture — Deep Dive](https://betterprogramming.pub/node-clean-architecture-deep-dive-ab68e523554b)

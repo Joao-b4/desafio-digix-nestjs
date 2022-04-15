@@ -1,4 +1,4 @@
-import { Family } from '../entities';
+import { Family } from '../../../core/entities';
 
 export class CreateFamilyResponseDto {
   success: boolean;

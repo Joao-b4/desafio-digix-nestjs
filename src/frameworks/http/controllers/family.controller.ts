@@ -1,6 +1,7 @@
 import { Controller, Get, Param, Post, Body, Put } from '@nestjs/common';
-import { CreateFamilyDto, UpdateFamilyDto, CreateFamilyResponseDto } from '../core/dtos';
-import { FamilyServices, FamilyFactoryService } from '../services/use-cases/family';
+import { CreateFamilyDto, UpdateFamilyDto, CreateFamilyResponseDto } from '../dtos';
+import { FamilyServices } from '../../../core/use-cases/family';
+import { FamilyFactoryService } from '../factory';
 
 @Controller('api/family')
 export class FamilyController {
