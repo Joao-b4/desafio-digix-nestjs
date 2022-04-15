@@ -85,18 +85,18 @@ $ npm run start:prod
   ├── src/
   │   └── configuration/                    # arquivos de configuracao, contem URL do banco de dados
   │   └── core/                             # camada nucleo da aplicacao
-  |       └── abstracts/                    # interfaces da camada externa que sao usadas pelos casos de uso 
-  |       └── entities/                     # classes usadas pelo nucleo da aplicacao
-  |       └── use-cases/                    # services dos casos de uso que utilizam as entitidades
-  |   └── frameworks/                       # camada de frameworks externos
-  |       └── data-services/                # servicos de acesso a dados
-  |           └── mongo/                    # implementacao do generic repository com o mongoDB
-  |               └── model/                # modelos que representam schemas do banco de dados
-  |       └── http/                         # servicos do servidor web
-  |           └── controllers/              # controladores de rotas da API
-  |           └── dtos/                     # objetos de transferencia de dados, utilizado para validar request e response
-  |           └── factory/                  # classes de factory para conversao de dto em entidades e vice-versa
-  |   └── modules/                          # camada de modulos
+  │       └── abstracts/                    # interfaces da camada externa que sao usadas pelos casos de uso 
+  │       └── entities/                     # classes usadas pelo nucleo da aplicacao
+  │       └── use-cases/                    # services dos casos de uso que utilizam as entitidades
+  │   └── frameworks/                       # camada de frameworks externos
+  │       └── data-services/                # servicos de acesso a dados
+  │           └── mongo/                    # implementacao do generic repository com o mongoDB
+  │               └── model/                # modelos que representam schemas do banco de dados
+  │       └── http/                         # servicos do servidor web
+  │           └── controllers/              # controladores de rotas da API
+  │           └── dtos/                     # objetos de transferencia de dados, utilizado para validar request e response
+  │           └── factory/                  # classes de factory para conversao de dto em entidades e vice-versa
+  │   └── modules/                          # camada de modulos
   ├── README.md                             # este arquivo com a descricao do projeto
   └── test/                                 # pasta com arquivos de teste
 ```
