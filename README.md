@@ -63,7 +63,6 @@ $ npm run start:prod
 * Testes Unitários
 * Testes de Integração (API Rest)
 * Mocks
-* Stubs
 
 > ## Technologies
 * Node.js
