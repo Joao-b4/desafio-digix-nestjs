@@ -49,6 +49,7 @@ $ npm run start:prod
 
 > ## Design Patterns
 * Factory
+* Singleton
 * Dependency Injection
 * Generic Repository Pattern
 * Data Transfer Object
